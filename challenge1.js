@@ -1,5 +1,4 @@
 const gifts = ['cat', 'game', 'socks']
-const wrapped = wrapping(gifts)
 
 
 function wrapping(gifts) {
@@ -14,4 +13,4 @@ function wrapping(gifts) {
     });
     return arrayGifts
 }
-console.log(wrapped)
+console.log(wrapping(gifts))
