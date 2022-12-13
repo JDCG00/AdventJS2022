@@ -6,13 +6,13 @@ const holidays = ['01/06', '04/01', '12/25'] // formato MM/DD
 // 12/25 es el 25 de diciembre, un domingo. No cuenta.
 
 function countHours(year, holidays) {
-    const horasExtras = 0
-    const esBisiesto = (year) => {
-        return (year % 400 === 0) ? true : 
-                    (year % 100 === 0) ? false : 
-                        (year % 4 === 0)
-    }
-    const bisisesto = esBisiesto(year)
-    return
+    return holidays.map(holiday =>{
+        let date = new Date(`${year}/${holiday}`)
+        return(
+            [1,2,3,4,5].includes(
+                date.getDay()
+            ) ? 1 : 0
+        )
+    }).reduce((count, extraHour) => count + extraHour) * 2
 }
 console.log(countHours(year, holidays))
